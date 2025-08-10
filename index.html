@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GKV Check62A - Complete View</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<h2>GKV Check62 - Application Check according to §62 SGB V</h2>
+<button id="lang-toggle" onclick="toggleLanguage()">🌐 Change Language</button>
+
+<div class="container">
+  <table>
+    <tr>
+      <td style="width:50%;">
+        <h4 data-lang-de="Stammdaten – Person 1" data-lang-en="Basic Info – Person 1">Basic Info – Person 1</h4>
+        <div class="field-group"><label data-lang-de="Vorname :" data-lang-en="First Name:">First Name:</label><input type="text" id="vorname1" placeholder="First Name"></div>
+        <div class="field-group"><label data-lang-de="Name :" data-lang-en="Last Name:">Last Name:</label><input type="text" id="name1" placeholder="Last Name"></div>
+        <div class="field-group"><label data-lang-de="Vers.-Nr.:" data-lang-en="Insurance No.:">Insurance No.:</label><input type="text" id="vers1" placeholder="U43931vereew"></div>
+        <div class="field-group"><label data-lang-de="IBAN:" data-lang-en="IBAN:">IBAN:</label><input type="text" id="iban1"></div>
+        <div class="field-group"><label data-lang-de="Straße / Nummer:" data-lang-en="Street / No.:">Street / No.:</label><input type="text" id="strasse1" placeholder="Main Street 34"></div>
+        <div class="field-group"><label data-lang-de="PLZ / Ort:" data-lang-en="ZIP / City:">ZIP / City:</label><input type="text" id="plz1" placeholder="12345 Sampletown"></div>
+        <div class="field-group"><label data-lang-de="Chronisch krank:" data-lang-en="Chronically Ill:">Chronically Ill:</label>
+          <input type="radio" name="chronisch1" id="chronisch1_ja" onchange="recalculate(1)"> <span data-lang-de="Ja" data-lang-en="Yes">Yes</span>
+          <input type="radio" name="chronisch1" id="chronisch1_nein" checked onchange="recalculate(1)"> <span data-lang-de="Nein" data-lang-en="No">No</span>
+        </div>
+      </td>
+      <td style="width:50%;">
+        <h4 data-lang-de="Stammdaten – Person 2" data-lang-en="Basic Info – Person 2">Basic Info – Person 2</h4>
+        <div class="field-group"><label data-lang-de="Vorname :" data-lang-en="First Name:">First Name:</label><input type="text" id="vorname2" placeholder="First Name"></div>
+        <div class="field-group"><label data-lang-de="Name :" data-lang-en="Last Name:">Last Name:</label><input type="text" id="name2" placeholder="Last Name"></div>
+        <div class="field-group"><label data-lang-de="Vers.-Nr.:" data-lang-en="Insurance No.:">Insurance No.:</label><input type="text" id="vers2" placeholder="YB98532384"></div>
+        <div class="field-group"><label data-lang-de="IBAN:" data-lang-en="IBAN:">IBAN:</label><input type="text" id="iban2"></div>
+        <div class="field-group"><label data-lang-de="Straße / Nummer:" data-lang-en="Street / No.:">Street / No.:</label><input type="text" id="strasse2" placeholder="Main Street 34"></div>
+        <div class="field-group"><label data-lang-de="PLZ / Ort:" data-lang-en="ZIP / City:">ZIP / City:</label><input type="text" id="plz2" placeholder="12345 Sampletown"></div>
+        <div class="field-group"><label data-lang-de="Chronisch krank:" data-lang-en="Chronically Ill:">Chronically Ill:</label>
+          <input type="radio" name="chronisch2" id="chronisch2_ja" onchange="recalculate(2)"> <span data-lang-de="Ja" data-lang-en="Yes">Yes</span>
+          <input type="radio" name="chronisch2" id="chronisch2_nein" checked onchange="recalculate(2)"> <span data-lang-de="Nein" data-lang-en="No">No</span>
+        </div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <h4 data-lang-de="Bewegungsdaten – Person 1" data-lang-en="Financial Data – Person 1">Financial Data – Person 1</h4>
+        <table class="bewegungstabelle">
+          <tr><td><input type="number" id="einkommen1" placeholder="16267.12" oninput="recalculate(1)"></td><td data-lang-de="Jahreseinkommen" data-lang-en="Annual Income">Annual Income</td></tr>
+          <tr><td><input type="number" id="partner1" placeholder="6363.00" oninput="recalculate(1)"></td><td data-lang-de="Partner-Freibetrag" data-lang-en="Partner Tax Allowance">Partner Tax Allowance</td></tr>
+          <tr><td><input type="number" id="kinder1" placeholder="0.00" oninput="recalculate(1)"></td><td data-lang-de="Kinder-Freibetrag" data-lang-en="Child Tax Allowance">Child Tax Allowance</td></tr>
+          <tr><td><input type="text" id="belastung1" readonly></td><td data-lang-de="Belastungsgrenze" data-lang-en="Threshold">Threshold</td></tr>
+          <tr><td><input type="text" id="bereinigt1" readonly></td><td data-lang-de="Bereinigtes Einkommen" data-lang-en="Adjusted Income">Adjusted Income</td></tr>
+          <tr><td><input type="text" id="erstattung1" readonly></td><td class="blue-text" data-lang-de="Erstattungsbetrag" data-lang-en="Reimbursement Amount">Reimbursement Amount</td></tr>
+        </table>
+      </td>
+  
+      <td>
+        <h4 data-lang-de="Bewegungsdaten – Person 2" data-lang-en="Financial Data – Person 2">Financial Data – Person 2</h4>
+        <table class="bewegungstabelle">
+          <tr><td><input type="number" id="einkommen2" placeholder="16267.12" oninput="recalculate(2)"></td><td data-lang-de="Jahreseinkommen" data-lang-en="Annual Income">Annual Income</td></tr>
+          <tr><td><input type="number" id="partner2" placeholder="6363.00" oninput="recalculate(2)"></td><td data-lang-de="Partner-Freibetrag" data-lang-en="Partner Tax Allowance">Partner Tax Allowance</td></tr>
+          <tr><td><input type="number" id="kinder2" placeholder="0.00" oninput="recalculate(2)"></td><td data-lang-de="Kinder-Freibetrag" data-lang-en="Child Tax Allowance">Child Tax Allowance</td></tr>
+          <tr><td><input type="text" id="belastung2" readonly></td><td data-lang-de="Belastungsgrenze" data-lang-en="Threshold">Threshold</td></tr>
+          <tr><td><input type="text" id="bereinigt2" readonly></td><td data-lang-de="Bereinigtes Einkommen" data-lang-en="Adjusted Income">Adjusted Income</td></tr>
+          <tr><td><input type="text" id="erstattung2" readonly></td><td class="blue-text" data-lang-de="Erstattungsbetrag" data-lang-en="Reimbursement Amount">Reimbursement Amount</td></tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="protocol">
+  <strong data-lang-de="Protokollierung der Antrags-Prüfung" data-lang-en="Application Check Protocol">Application Check Protocol</strong><br><br>
+
+  <div style="margin-top: 10px;">
+    <label data-lang-de="Berechnungsart:" data-lang-en="Calculation Type:"><strong>Calculation Type:</strong></label>
+    <label><input type="radio" name="modus" id="modus_gemeinsam" placeholder="gemeinsam" checked onchange="recalculateAll()"> <span data-lang-de="gemeinsam" data-lang-en="together">together</span></label>
+    <label><input type="radio" name="modus" id="modus_getrennt" placeholder="getrennt" onchange="recalculateAll()"> <span data-lang-de="getrennt" data-lang-en="separate">separate</span></label>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <label for="monatWirksamkeit" data-lang-de="Monat der Wirksamkeit der Aktion:" data-lang-en="Month of Action Effectiveness:"><strong>Month of Action Effectiveness:</strong></label>
+    <select id="monatWirksamkeit">
+      <option value="">-- Select Month --</option>
+      <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+      <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+      <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+      <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+    </select>
+  </div>
+
+  <label for="aktion" data-lang-de="Aktion auswählen:" data-lang-en="Select Action:">Select Action:</label>
+  <select id="aktion">
+    <option value="">-- please select --</option>
+    <option value="kind_geboren" data-lang-de="Kind im Monat 4 geboren" data-lang-en="Child born in month 4">Child born in month 4</option>
+    <option value="ehe_trennung" data-lang-de="Partner verlässt Ehe im Monat 7" data-lang-en="Partner leaves marriage in month 7">Partner leaves marriage in month 7</option>
+    <option value="tod_kind" data-lang-de="Tod eines Kindes" data-lang-en="Death of a child">Death of a child</option>
+    <option value="partner_privat" data-lang-de="Partner privat versichert" data-lang-en="Partner privately insured">Partner privately insured</option>
+    <option value="kapitalauszahlung" data-lang-de="Kapitalauszahlung" data-lang-en="Lump-sum capital payout">Lump-sum capital payout</option>
+    <option value="ausbildung_kind" data-lang-de="Kind beginnt Ausbildung" data-lang-en="Child starts education">Child starts education</option>
+    <option value="krankenkassenwechsel" data-lang-de="Krankenkassenwechsel" data-lang-en="Health insurance change">Health insurance change</option>
+    <option value="pflegeheim" data-lang-de="Heimunterbringung Angehöriger" data-lang-en="Nursing home placement">Nursing home placement</option>
+    <option value="kurzarbeit" data-lang-de="Kurzarbeit" data-lang-en="Short-time work">Short-time work</option>
+    <option value="heirat_ausland" data-lang-de="Heirat im Ausland" data-lang-en="Marriage abroad">Marriage abroad</option>
+    <option value="selbststaendig" data-lang-de="Selbstständige Einkünfte" data-lang-en="Self-employed income">Self-employed income</option>
+    <option value="unterstuetzung" data-lang-de="Unterstützung durch Dritte" data-lang-en="Financial support from third parties">Financial support from third parties</option>
+  </select>
+
+  <button onclick="applyAction()" data-lang-de="Anwenden" data-lang-en="Apply">Apply</button>
+  <button onclick="generateCompletePDF()" class="pdf-btn">
+    <span data-lang-de="Komplette PDF erstellen" data-lang-en="Generate Complete PDF">
+      Generate Complete PDF
+    </span>
+  </button>  
+  <button onclick="recalculate(1); recalculate(2);" data-lang-de="Neu berechnen" data-lang-en="Recalculate">Recalculate</button>
+
+  <div id="protokollausgabe"></div>
+</div>
+
+</body>
+</html>
