@@ -1,0 +1,51 @@
+Nr.,Sonderfall,Betroffene Person(en),Einkommen verändert?,Jahreseinkommen gesamt verändert?,Sonstige Merkmale
+1,Geburt eines Kindes,Elternteil(e),Ja (Freibetrag),Nein,Freibetrag für Kind senkt Belastungsgrenze
+2,Tod eines Kindes,Elternteil(e),Ja (Freibetrag entfällt),Nein,Wegfall ab Folgemonat
+3,Trennung/Scheidung,Beide Partner,Ja,Ja,Einzelberechnung statt Gemeinschaft
+4,Heirat/Partnerschaft,Beide Partner,Ja,Ja,Gemeinsames Einkommen und Freibetrag
+5,Ein Partner chronisch krank,Chronisch Kranke Person,Nein,Nein,1%-Grenze statt 2%
+6,Unterschiedliche gesetzliche Kassen,Beide Partner,Nein,Nein,Zuzahlungen separat einreichbar
+7,Ein Partner privat versichert,Gesetzlich Versicherter,Nein,Ja,"Höheres Einkommen, aber keine Erstattung des PKV-Partners"
+8,Eintritt GKV während des Jahres,Antragsteller,Ja (anteilig),Ja,Nur versicherte Monate zählen
+9,Auslandsaufenthalt,Antragsteller,Nein,Nein,Zuzahlungen im Ausland meist nicht anerkannt
+10,Pflegebedürftigkeit im Jahr,Pflegebedürftiger,Ja,Ja,Freibetrag für Pflegebedürftigkeit
+11,Härtefall (hohe Kosten),Antragsteller,Nein,Nein,Frühzeitige Befreiung möglich
+12,Steuerklassenwechsel,Antragsteller,Ja (Nettoeinkommen),Ja,Indirekter Einfluss
+13,Rentenbeginn,Antragsteller,Ja,Ja,Geringeres Einkommen nach Rentenbeginn
+14,Kapitalauszahlung,Antragsteller,Ja,Ja,Einkommen steigt stark
+15,Kind zieht aus,Elternteil,Ja,Nein,Freibetrag entfällt
+16,Pflege eines Angehörigen,Pflegender,Ja,Nein,Pflegefreibetrag anrechenbar
+17,Wohngeld/Grundsicherung,Antragsteller,Ja,Ja,Befreiung meist automatisch
+18,Teilzeit/Vollzeit-Wechsel,Antragsteller,Ja,Ja,Monatsgenaue Berechnung nötig
+19,Ausbildungsstart Kind,Elternteil,Ja,Ja,Freibetrag entfällt bei eigenem Einkommen Kind
+20,Familienversicherung,Partner,Ja,Nein,Nur Einkommen des Versicherten zählt
+21,Elterngeld,Elternteil,Ja,Ja,Teilweise anrechnungsfrei
+22,Krankengeld,Antragsteller,Ja,Ja,Geringeres Einkommen während Bezug
+23,ALG I,Antragsteller,Ja,Ja,Als Einkommen anrechenbar
+24,ALG II / Bürgergeld,Antragsteller,Nein,Ja,Meist automatische Befreiung
+25,Arbeitsaufnahme,Antragsteller,Ja,Ja,Einkommen steigt
+26,Waisenrente Kind,Kind,Ja,Nein,Zählt für Freibeträge des Kindes
+27,Unterhalt,Zahlende oder empfangende Person,Ja,Ja,Kann Einkommen mindern
+28,Wechsel zu freiwilliger GKV,Antragsteller,Nein,Nein,Rechtlich gleichgestellt
+29,Krankenkassenwechsel,Antragsteller,Nein,Nein,Belege müssen übertragen werden
+30,Befreiung Vorjahr,Antragsteller,Nein,Nein,Voranerkennung möglich
+31,Pflegegradänderung,Pflegebedürftiger,Ja,Ja,Höherer Pflegefreibetrag möglich
+32,Heimunterbringung Angehöriger,Angehörige,Ja,Ja,Kosten evtl. einkommensmindernd
+33,Hausverkauf mit Gewinn,Verkäufer,Ja,Ja,Kapitalgewinn zählt als Einkommen
+34,Ehrenamt mit Vergütung,Ehrenamtlicher,Ja,Ja,Freibetrag mindert Einkommen
+35,Unterhalt durch Scheidung,Zahlende Person,Ja,Ja,Einkommensmindernd
+36,Kapitalerträge,Antragsteller,Ja,Ja,Über Freibetrag anrechenbar
+37,Kindergeldzuschlag,Eltern,Nein,Nein,Kein Einfluss auf Einkommen
+38,Steuererstattung,Antragsteller,Nein,Nein,Keine Anrechnung auf Einkommen
+39,Selbstständigkeit zu Anstellung,Antragsteller,Ja,Ja,Einkommensstruktur ändert sich
+40,Kurzarbeit,Antragsteller,Ja,Ja,Geringeres Einkommen
+41,Teilrente,Antragsteller,Ja,Ja,Reduziertes Einkommen
+42,Pflege durch Partner,Pflegender Partner,Nein,Nein,Pflegeleistung nicht relevant
+43,Heirat im Ausland,Beide Partner,Ja,Ja,Anrechnung wie Inlandsheirat
+44,Versicherung über Eltern (Übergang),Kind,Nein,Nein,Familienversicherung prüfen
+45,Erbe erhalten,Antragsteller,Ja,Ja,Kann Einkommen erhöhen
+46,Schuldenabbau durch Tilgung,Antragsteller,Nein,Nein,Keine Relevanz für Einkommen
+47,Geldgeschenk (z. B. von Eltern),Antragsteller,Ja,Ja,Kann als Einkommen zählen
+48,Selbstständige Einkünfte,Antragsteller,Ja,Ja,Unregelmäßiges Einkommen relevant
+49,Unterstützung durch Dritte,Antragsteller,Ja,Ja,Kann bei Nachweis als Einkommen gelten
+50,Platzhalter-Sonderfall,Nicht definiert,Nein,Nein,Kein weiterer Hinweis
