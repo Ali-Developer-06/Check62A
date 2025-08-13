@@ -18,25 +18,50 @@
     <tr>
       <td style="width:50%;">
         <h4 data-lang-de="Stammdaten – Person 1" data-lang-en="Basic Info – Person 1">Basic Info – Person 1</h4>
-        <div class="field-group"><label data-lang-de="Vorname :" data-lang-en="First Name:">First Name:</label><input type="text" id="vorname1" placeholder="First Name"></div>
-        <div class="field-group"><label data-lang-de="Name :" data-lang-en="Last Name:">Last Name:</label><input type="text" id="name1" placeholder="Last Name"></div>
-        <div class="field-group"><label data-lang-de="Vers.-Nr.:" data-lang-en="Insurance No.:">Insurance No.:</label><input type="text" id="vers1" placeholder="U43931vereew"></div>
-        <div class="field-group"><label data-lang-de="IBAN:" data-lang-en="IBAN:">IBAN:</label><input type="text" id="iban1"></div>
-        <div class="field-group"><label data-lang-de="Straße / Nummer:" data-lang-en="Street / No.:">Street / No.:</label><input type="text" id="strasse1" placeholder="Main Street 34"></div>
-        <div class="field-group"><label data-lang-de="PLZ / Ort:" data-lang-en="ZIP / City:">ZIP / City:</label><input type="text" id="plz1" placeholder="12345 Sampletown"></div>
-        <div class="field-group"><label data-lang-de="Chronisch krank:" data-lang-en="Chronically Ill:">Chronically Ill:</label>
+        <div class="field-group">
+          <label data-lang-de="Vorname :" data-lang-en="First Name:">First Name:</label>
+          <input type="text" id="vorname1" placeholder="First Name"></div>
+        <div class="field-group">
+          <label data-lang-de="Name :" data-lang-en="Last Name:">Last Name:</label>
+          <input type="text" id="name1" placeholder="Last Name"></div>
+        <div class="field-group">
+          <label data-lang-de="Vers.-Nr.:" data-lang-en="Insurance No.:">Insurance No.:</label>
+          <input type="text" id="vers1" placeholder="U43931vereew"></div>
+        <div class="field-group">
+          <label data-lang-de="IBAN:" data-lang-en="IBAN:">IBAN:</label>
+          <input type="text" id="iban1"></div>
+        <div class="field-group">
+          <label data-lang-de="Straße / Nummer:" data-lang-en="Street / No.:">Street / No.:</label>
+          <input type="text" id="strasse1" placeholder="Main Street 34"></div>
+        <div class="field-group">
+          <label data-lang-de="PLZ / Ort:" data-lang-en="ZIP / City:">ZIP / City:</label>
+          <input type="text" id="plz1" placeholder="12345 Sampletown"></div>
+        <div class="field-group">
+          <label data-lang-de="Chronisch krank:" data-lang-en="Chronically Ill:">Chronically Ill:</label>
           <input type="radio" name="chronisch1" id="chronisch1_ja" onchange="recalculate(1)"> <span data-lang-de="Ja" data-lang-en="Yes">Yes</span>
           <input type="radio" name="chronisch1" id="chronisch1_nein" checked onchange="recalculate(1)"> <span data-lang-de="Nein" data-lang-en="No">No</span>
         </div>
       </td>
       <td style="width:50%;">
         <h4 data-lang-de="Stammdaten – Person 2" data-lang-en="Basic Info – Person 2">Basic Info – Person 2</h4>
-        <div class="field-group"><label data-lang-de="Vorname :" data-lang-en="First Name:">First Name:</label><input type="text" id="vorname2" placeholder="First Name"></div>
-        <div class="field-group"><label data-lang-de="Name :" data-lang-en="Last Name:">Last Name:</label><input type="text" id="name2" placeholder="Last Name"></div>
-        <div class="field-group"><label data-lang-de="Vers.-Nr.:" data-lang-en="Insurance No.:">Insurance No.:</label><input type="text" id="vers2" placeholder="YB98532384"></div>
-        <div class="field-group"><label data-lang-de="IBAN:" data-lang-en="IBAN:">IBAN:</label><input type="text" id="iban2"></div>
-        <div class="field-group"><label data-lang-de="Straße / Nummer:" data-lang-en="Street / No.:">Street / No.:</label><input type="text" id="strasse2" placeholder="Main Street 34"></div>
-        <div class="field-group"><label data-lang-de="PLZ / Ort:" data-lang-en="ZIP / City:">ZIP / City:</label><input type="text" id="plz2" placeholder="12345 Sampletown"></div>
+        <div class="field-group">
+          <label data-lang-de="Vorname :" data-lang-en="First Name:">First Name:</label>
+          <input type="text" id="vorname2" placeholder="First Name"></div>
+        <div class="field-group">
+          <label data-lang-de="Name :" data-lang-en="Last Name:">Last Name:</label>
+          <input type="text" id="name2" placeholder="Last Name"></div>
+        <div class="field-group">
+          <label data-lang-de="Vers.-Nr.:" data-lang-en="Insurance No.:">Insurance No.:</label>
+          <input type="text" id="vers2" placeholder="YB98532384"></div>
+        <div class="field-group">
+          <label data-lang-de="IBAN:" data-lang-en="IBAN:">IBAN:</label>
+          <input type="text" id="iban2"></div>
+        <div class="field-group">
+          <label data-lang-de="Straße / Nummer:" data-lang-en="Street / No.:">Street / No.:</label>
+          <input type="text" id="strasse2" placeholder="Main Street 34"></div>
+        <div class="field-group">
+          <label data-lang-de="PLZ / Ort:" data-lang-en="ZIP / City:">ZIP / City:</label>
+          <input type="text" id="plz2" placeholder="12345 Sampletown"></div>
         <div class="field-group"><label data-lang-de="Chronisch krank:" data-lang-en="Chronically Ill:">Chronically Ill:</label>
           <input type="radio" name="chronisch2" id="chronisch2_ja" onchange="recalculate(2)"> <span data-lang-de="Ja" data-lang-en="Yes">Yes</span>
           <input type="radio" name="chronisch2" id="chronisch2_nein" checked onchange="recalculate(2)"> <span data-lang-de="Nein" data-lang-en="No">No</span>
@@ -148,14 +173,14 @@
   </select>
   
 
-  <button onclick="applyAction()" data-lang-de="Anwenden" data-lang-en="Apply">Apply</button>
   <button onclick="generateCompletePDF()" class="pdf-btn">
     <span data-lang-de="Komplette PDF erstellen" data-lang-en="Generate Complete PDF">
       Generate Complete PDF
     </span>
   </button>  
-  <button onclick="recalculate(1); recalculate(2);" data-lang-de="Neu berechnen" data-lang-en="Recalculate">Recalculate</button>
-
+  <button onclick="recalculateAll()" data-lang-de="Neu berechnen" data-lang-en="Recalculate">
+    Recalculate
+  </button>
   <div id="protokollausgabe"></div>
 </div>
 

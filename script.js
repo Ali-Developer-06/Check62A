@@ -1,54 +1,55 @@
 // Initialize jsPDF
 const { jsPDF } = window.jspdf;
 
-// Recalculation functions
 function recalculateAll() {
-  const modus = document.querySelector('input[name="modus"]:checked').value;
-  if (modus === "gemeinsam") {
-    const eink1 = parseFloat(document.getElementById('einkommen1').value) || 0;
-    const eink2 = parseFloat(document.getElementById('einkommen2').value) || 0;
-    const part1 = parseFloat(document.getElementById('partner1').value) || 0;
-    const kind1 = parseFloat(document.getElementById('kinder1').value) || 0;
-    const part2 = parseFloat(document.getElementById('partner2').value) || 0;
-    const kind2 = parseFloat(document.getElementById('kinder2').value) || 0;
-    const chr1 = document.querySelector('input[name="chronisch1"]:checked').value === 'ja';
-    const chr2 = document.querySelector('input[name="chronisch2"]:checked').value === 'ja';
-    const grenzsatz = (chr1 && chr2) ? 0.01 : 0.02;
-
-    const E = eink1 + eink2;
-    const F = part1 + part2;
-    const K = kind1 + kind2;
-    const E_b = E - F - K;
-    const G = E_b * grenzsatz;
-    const R = E - G;
-
-    document.getElementById('belastung1').value = G.toFixed(2);
-    document.getElementById('bereinigt1').value = E_b.toFixed(2);
-    document.getElementById('erstattung1').value = R.toFixed(2);
-
-    document.getElementById('belastung2').value = "";
-    document.getElementById('bereinigt2').value = "";
-    document.getElementById('erstattung2').value = "";
-  } else {
-    recalculate(1);
-    recalculate(2);
+  try {
+    const modus = document.querySelector('input[name="modus"]:checked').value;
+    
+    if (modus === "gemeinsam") {
+      const values = [1, 2].map(p => ({
+        eink: parseFloat(document.getElementById(`einkommen${p}`).value) || 0,
+        part: parseFloat(document.getElementById(`partner${p}`).value) || 0,
+        kind: parseFloat(document.getElementById(`kinder${p}`).value) || 0,
+        chr: document.querySelector(`input[name="chronisch${p}"]:checked`).value === 'ja'
+      }));
+      
+      const E = values[0].eink + values[1].eink;
+      const F = values[0].part + values[1].part;
+      const K = values[0].kind + values[1].kind;
+      const grenzsatz = (values[0].chr && values[1].chr) ? 0.01 : 0.02;
+      
+      const E_b = E - F - K;
+      const G = (E_b * grenzsatz).toFixed(2);
+      const R = (E - G).toFixed(2);
+      
+      document.getElementById('belastung1').value = G;
+      document.getElementById('bereinigt1').value = E_b.toFixed(2);
+      document.getElementById('erstattung1').value = R;
+      
+      ['belastung2', 'bereinigt2', 'erstattung2'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+      
+    } else {
+      recalculate(1);
+      recalculate(2);
+    }
+  } catch (error) {
+    console.error("Recalculation error:", error);
+    alert("Calculation error - check console for details");
   }
 }
 
 function recalculate(p) {
-  const einkommen = parseFloat(document.getElementById('einkommen' + p).value) || 0;
-  const partner = parseFloat(document.getElementById('partner' + p).value) || 0;
-  const kinder = parseFloat(document.getElementById('kinder' + p).value) || 0;
-  const chronisch = document.querySelector('input[name="chronisch' + p + '"]:checked').value === 'ja';
-  const grenze = chronisch ? 0.01 : 0.02;
-
-  const belastung = einkommen * grenze;
-  const bereinigt = einkommen - partner - kinder;
-  const erstattung = einkommen - belastung;
-
-  document.getElementById('belastung' + p).value = belastung.toFixed(2);
-  document.getElementById('bereinigt' + p).value = bereinigt.toFixed(2);
-  document.getElementById('erstattung' + p).value = erstattung.toFixed(2);
+  const eink = parseFloat(document.getElementById(`einkommen${p}`).value) || 0;
+  const part = parseFloat(document.getElementById(`partner${p}`).value) || 0;
+  const kind = parseFloat(document.getElementById(`kinder${p}`).value) || 0;
+  const chr = document.querySelector(`input[name="chronisch${p}"]:checked`)?.value === 'ja';
+  
+  const grenze = chr ? 0.01 : 0.02;
+  document.getElementById(`belastung${p}`).value = (eink * grenze).toFixed(2);
+  document.getElementById(`bereinigt${p}`).value = (eink - part - kind).toFixed(2);
+  document.getElementById(`erstattung${p}`).value = (eink - (eink * grenze)).toFixed(2);
 }
 
 // ===== helpers =====
